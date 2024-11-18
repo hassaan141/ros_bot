@@ -2,6 +2,9 @@
 <robot xmlns:xacro="http://www.ros.org/xacro" name="robot">
 
     <gazebo>
+
+        <!-- The plugin listens to the /cmd_vel topic for velocity commands to control the robot. -->
+        <!-- The plugin publishes to the /odom topic to provide odometry data (e.g., position and velocity of the robot). -->
         <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
         
             <!-- Wheel information -->
