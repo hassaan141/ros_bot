@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
 
-    <joint name="lidar_joint" type="fixed">
+    <joint name="laser_joint" type="fixed">
         <parent link="chassis" />
-        <child link="lidar"/>
+        <child link="laser_frame"/>
         <origin xyz="0.1 0 0.175" rpy="0 0 0"/>
 
     </joint>
 
-    <link name="lidar">
+    <link name="laser_frame">
         <visual>
             <geometry>
                 <cylinder radius="0.05" length="0.04"/>
@@ -38,6 +38,7 @@
                 <scan>
                     <horizontal>
                         <samples>360</samples>
+                        <resolution>1</resolution>
                         <min_angle>-3.14</min_angle>
                         <max_angle>3.14</max_angle>
                     </horizontal>
@@ -45,6 +46,7 @@
                 <range>
                     <min>0.3</min>
                     <max>12</max>
+                    <resolution>0.1</resolution>
                 </range>
             </ray>
             <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
@@ -52,7 +54,7 @@
                     <argument>~/out:=scan</argument>
                 </ros>
                 <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>lidar</frame_name>
+                <frame_name>laser_frame</frame_name>
             </plugin>
         </sensor>
     </gazebo>

@@ -24,8 +24,8 @@
         <origin xyz="0 0 0 " rpy="${-pi/2} 0 ${-pi/2}"/>
     </joint>
 
-     <link name="camera_link_optical"></link>
-
+    <link name="camera_link_optical">
+    </link>
 
     <gazebo reference="camera_link">
         <material>Gazebo/Red</material>
@@ -46,7 +46,8 @@
                     <far>8.0</far>
                 </clip>
             </camera>
-            <plugin name="camera_controller" filename="libgazebo_ros_camera_sensor.so">
+            <!-- Maybe change this -->
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <frame_name>camera_link_optical</frame_name>
             </plugin>
         </sensor>
