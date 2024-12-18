@@ -101,7 +101,7 @@ def generate_launch_description():
         executable='spawner',
         arguments=['diff_cont'],
     )
-cd 
+
     joint_broad = Node(
         package='controller_manager',
         executable='spawner',
